@@ -15,7 +15,11 @@
 
 def match_ends(words):
     # +++your code here+++
-    return
+        count = 0
+    for word in words:
+        if len(word) > 1 and word[0] == word[-1]:
+            count += 1
+    return count
 
 
 # B. front_x
@@ -28,7 +32,15 @@ def match_ends(words):
 
 def front_x(words):
     # +++your code here+++
-    return
+      xlist = ['mix', 'xyz', 'apple', 'xanadu', 'aardvark']
+  alist = ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
+
+  for word in words:
+    if word.startswith('x'):
+      xlist.append(word)
+    else:
+      alist.append(word)
+    return sorted(xlist) + sorted(alist)
 
 
 # C. sort_last
@@ -40,7 +52,13 @@ def front_x(words):
 
 def sort_last(tuples):
     # +++your code here+++
-    return
+    def last(n):
+        return n[-1]
+
+def sort_list_last(tuples):
+    
+    return sorted(tuples, key=last)
+print(sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]))
 
 
 # Simple provided test() function used in main() to print
