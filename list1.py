@@ -15,12 +15,11 @@
 
 def match_ends(words):
     # +++your code here+++
-        count = 0
-    for word in words:
-        if len(word) > 1 and word[0] == word[-1]:
-            count += 1
-    return count
-
+       count = 0
+       for word in words:
+           if len(word) >= 2 and word[0] == word[-1]:
+               count += 1
+               return count 
 
 # B. front_x
 # Given a list of strings, return a list with the strings
@@ -32,16 +31,21 @@ def match_ends(words):
 
 def front_x(words):
     # +++your code here+++
-      xlist = ['mix', 'xyz', 'apple', 'xanadu', 'aardvark']
-  alist = ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
+    front_x = []
+    other_list = []
 
-  for word in words:
-    if word.startswith('x'):
-      xlist.append(word)
-    else:
-      alist.append(word)
-    return sorted(xlist) + sorted(alist)
+    for word in words:
+        if word.startswith('x'):
+            front_x.append(word)
+        else:
+            other_list.append(word)
 
+    # Sort both lists
+    front_x.sort()
+    other_list.sort()
+
+    # Combine the two lists
+    return front_x + other_list
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -54,11 +58,7 @@ def sort_last(tuples):
     # +++your code here+++
     def last(n):
         return n[-1]
-
-def sort_list_last(tuples):
-    
     return sorted(tuples, key=last)
-print(sort_list_last([(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]))
 
 
 # Simple provided test() function used in main() to print
